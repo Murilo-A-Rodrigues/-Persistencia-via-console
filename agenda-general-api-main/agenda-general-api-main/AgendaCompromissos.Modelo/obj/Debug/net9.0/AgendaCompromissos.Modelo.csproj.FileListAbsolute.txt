@@ -1,0 +1,12 @@
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\bin\Debug\net9.0\AgendaCompromissos.Modelo.deps.json
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\bin\Debug\net9.0\AgendaCompromissos.Modelo.dll
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\bin\Debug\net9.0\AgendaCompromissos.Modelo.pdb
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.AssemblyInfoInputs.cache
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.AssemblyInfo.cs
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.sourcelink.json
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.dll
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\refint\AgendaCompromissos.Modelo.dll
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\AgendaCompromissos.Modelo.pdb
+C:\Users\Muril\Downloads\Trabalho OO\agenda-general-api\AgendaCompromissos.Modelo\obj\Debug\net9.0\ref\AgendaCompromissos.Modelo.dll
