@@ -15,7 +15,7 @@ Este é um projeto desenvolvido na matéria de Programação Orientada a Objetos
 1. Certifique-se de ter o .NET SDK instalado.
 2. Navegue até o diretório do projeto e insira os seguintes comandos caso seja a primeira vez executando o projeto:
 ```bash
-   cd "c:\Users\Muril\Downloads\Trabalho OO\agenda-general-api"
+   cd "c:\Users\Muril\Downloads\Trabalho OO\-Persistencia-via-console\agenda-general-api-main\agenda-general-api-main"
 
    dotnet run
 ```
@@ -38,6 +38,8 @@ Este é um projeto desenvolvido na matéria de Programação Orientada a Objetos
 
 - **Modelos/Usuário.cs**: Classe responsável por representar o usuário que gerencia os compromissos.
 
+- **Persistencia/RepositorioCompromissos**: Classe responsável por criar o arquivo Json.
+
 ## Tecnologias Utilizadas
 
 - **C#**: Linguagem de programação principal.
@@ -47,7 +49,7 @@ Este é um projeto desenvolvido na matéria de Programação Orientada a Objetos
 
 ### Iniciação do programa
 
-O programa solicitará o nome completo do usuário e abrirá um menu onde o usuário poderá escolher entre registrar um novo compromisso, visualizar os compromissos existentes ou sair do programa.
+O programa solicitará que selecione ou adicione o usuário e após isso abrirá um menu onde o usuário poderá escolher entre registrar um novo compromisso, visualizar os compromissos existentes, trocar o usuário, excluir um compromisso ou sair do programa.
 
 ### Registro de Compromisso
 
@@ -104,6 +106,27 @@ E em seguida solicitará:
 - Descrição da sala: 'Sala de Estudos'
 - Capacidade: '20'
 
+### Troca de usuário
+
+O programa retornará para o menu de usuários.
+
+### Exclusão de compromisso
+
+O programa apresentará um menu com os compromissos existentes, com números que representam a ordem em que eles foram criados, o usuário deve selecionar o número referente ao compromisso que deseja excluir.
+Caso o usuário selecione um número que não represente nenhum compromisso o programa irá apenas retornar ao menu inicial. 
+
+## Estratégia de Serialização Adotada
+
+O projeto utiliza a biblioteca **System.Text.Json** para serializar e desserializar os dados dos usuários e seus compromissos em um arquivo JSON. Para garantir que listas privadas (como compromissos, participantes e anotações) sejam corretamente persistidas, foi adotado o uso do atributo `[JsonInclude]` nos campos privados dessas listas dentro das classes de modelo.
+
+Dessa forma, mesmo mantendo o encapsulamento das coleções (sem expor setters públicos), o serializador consegue ler e gravar todos os dados necessários. O arquivo `usuarios.json` é salvo sempre na pasta de persistência do projeto, garantindo centralização e fácil acesso aos dados.
+
+**Resumo da estratégia:**
+- Uso do `System.Text.Json` para serialização e desserialização.
+- Aplicação do atributo `[JsonInclude]` em listas privadas para garantir persistência sem comprometer o encapsulamento.
+- O arquivo JSON é salvo em um caminho absoluto, sempre na pasta `AgendaCompromissos.Persistencia`.
+- Todo o processo é transparente para o usuário, mantendo a integridade e a organização dos dados.
+
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
@@ -111,12 +134,9 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## Créditos
 
-Este projeto foi desenvolvido por Murilo Andre Rodrigues e por Victor Luiz De Oliveira Paes como parte da disciplina de Programação Orientada a Objetos.
+Este projeto foi desenvolvido por Murilo Andre Rodrigues como parte da disciplina de Programação Orientada a Objetos.
 
 ## Contato
 
 - **Email**: murilorodrigues@alunos.utfpr.edu.br
 - **GitHub**: Murilo-A-Rodrigues(https://github.com/Murilo-A-Rodrigues)
-
-- **Email**: victorpaes@alunos.utfpr.edu.br
-- **GitHub**: VctPaes(https://github.com/VctPaes)
