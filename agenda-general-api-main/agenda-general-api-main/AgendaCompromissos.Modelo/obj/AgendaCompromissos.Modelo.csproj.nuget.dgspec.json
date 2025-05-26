@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\victo\\Documents\\GitHub\\agenda-general-api\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj": {}
+    "C:\\Users\\Muril\\Downloads\\Trabalho OO\\-Persistencia-via-console\\agenda-general-api-main\\agenda-general-api-main\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\victo\\Documents\\GitHub\\agenda-general-api\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj": {
+    "C:\\Users\\Muril\\Downloads\\Trabalho OO\\-Persistencia-via-console\\agenda-general-api-main\\agenda-general-api-main\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\victo\\Documents\\GitHub\\agenda-general-api\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj",
+        "projectUniqueName": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\-Persistencia-via-console\\agenda-general-api-main\\agenda-general-api-main\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj",
         "projectName": "AgendaCompromissos.Modelo",
-        "projectPath": "C:\\Users\\victo\\Documents\\GitHub\\agenda-general-api\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj",
-        "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\victo\\Documents\\GitHub\\agenda-general-api\\AgendaCompromissos.Modelo\\obj\\",
+        "projectPath": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\-Persistencia-via-console\\agenda-general-api-main\\agenda-general-api-main\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj",
+        "packagesPath": "C:\\Users\\Muril\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\-Persistencia-via-console\\agenda-general-api-main\\agenda-general-api-main\\AgendaCompromissos.Modelo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Muril\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

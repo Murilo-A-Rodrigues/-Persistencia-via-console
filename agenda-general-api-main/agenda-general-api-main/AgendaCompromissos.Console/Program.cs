@@ -1,32 +1,97 @@
 ﻿using AgendaCompromissos.Model;
+using AgendaCompromissos.Persistencial;
 using System.Globalization;
 
 CultureInfo culturaBrasileira = new("pt-BR");
 
 Console.WriteLine("Bem-vindo ao Sistema de Agenda de Compromissos!");
 
-Console.Write("Digite o seu nome completo: ");
-string nomeUsuario = Console.ReadLine();
-Usuario usuario = new(nomeUsuario);
+List<Usuario> usuarios = RepositorioCompromissos.Carregar();
+Usuario usuario = null;
+
+while (usuario == null) 
+{
+    Console.WriteLine("\nUsuários cadastrados:");
+    if (usuarios.Count == 0)
+        Console.WriteLine("Nenhum usuário cadastrado.");
+    else
+        for (int i = 0; i < usuarios.Count; i++)
+            Console.WriteLine($"{i + 1}. {usuarios[i].Nome}");
+
+    Console.Write("Digite o número do usuário para entrar ou pressione ENTER para criar novo: ");
+    var entrada = Console.ReadLine();
+
+    if (string.IsNullOrWhiteSpace(entrada))
+    {
+        Console.Write("Digite o nome completo do novo usuário: ");
+        string nomeUsuario = Console.ReadLine();
+
+        var existente = usuarios.Find(u => u.Nome.Equals(nomeUsuario, StringComparison.OrdinalIgnoreCase));
+        if (existente != null)
+        {
+            Console.WriteLine("Usuário já existe! Selecionando usuário existente.");
+            usuario = existente;
+        }
+        else
+        {
+            usuario = new Usuario(nomeUsuario);
+            usuarios.Add(usuario);
+            RepositorioCompromissos.Salvar(usuarios);
+        }
+    }
+    else if (int.TryParse(entrada, out int indice) && indice > 0 && indice <= usuarios.Count)
+    {
+        usuario = usuarios[indice - 1];
+    }
+    else
+    {
+        Console.WriteLine("Opção inválida.");
+    }
+}
 
 while (true)
 {
-    Console.WriteLine("\nMenu:");
+    Console.WriteLine($"\nUsuário atual: {usuario.Nome}");
     Console.WriteLine("1. Registrar novo compromisso");
     Console.WriteLine("2. Exibir compromissos");
-    Console.WriteLine("3. Sair");
+    Console.WriteLine("3. Trocar de usuário");
+    Console.WriteLine("4. Excluir compromisso");
+    Console.WriteLine("0. Sair");
     Console.Write("Escolha uma opção: ");
     string opcao = Console.ReadLine();
 
     switch (opcao)
     {
         case "1":
-            RegistrarCompromisso(usuario);
+            var usuarioAtual = usuarios.Find(u => u.Nome.Equals(usuario.Nome, StringComparison.OrdinalIgnoreCase));
+            RegistrarCompromisso(usuarioAtual);
+            RepositorioCompromissos.Salvar(usuarios);
             break;
         case "2":
             ExibirCompromissos(usuario);
             break;
         case "3":
+            usuario = null;
+            while (usuario == null)
+            {
+                Console.WriteLine("\nUsuários cadastrados:");
+                for (int i = 0; i < usuarios.Count; i++)
+                    Console.WriteLine($"{i + 1}. {usuarios[i].Nome}");
+                Console.Write("Digite o número do usuário para entrar: ");
+                var entradaTroca = Console.ReadLine();
+                if (int.TryParse(entradaTroca, out int idx) && idx > 0 && idx <= usuarios.Count)
+                    usuario = usuarios[idx - 1];
+                else
+                    Console.WriteLine("Opção inválida.");
+            }
+            break;
+        
+        case "4":
+            ExcluirCompromisso(usuario, usuarios);
+             break;
+             
+        case "0":
+            RepositorioCompromissos.Salvar(usuarios);
             Console.WriteLine("Encerrando o programa...");
             return;
         default:
@@ -180,8 +245,7 @@ static void ExibirCompromissos(Usuario usuario)
     foreach (var compromisso in usuario.Compromissos)
     {
         Console.WriteLine($"\n{compromisso}");
-        
-        // Exibir participantes
+
         if (compromisso.Participantes.Count > 0)
         {
             Console.WriteLine("Participantes:");
@@ -195,7 +259,7 @@ static void ExibirCompromissos(Usuario usuario)
             Console.WriteLine("Nenhum participante registrado.");
         }
 
-        // Exibir anotações
+
         if (compromisso.Anotacoes.Count > 0)
         {
             Console.WriteLine("Anotações:");
@@ -208,5 +272,39 @@ static void ExibirCompromissos(Usuario usuario)
         {
             Console.WriteLine("Nenhuma anotação registrada.");
         }
+    }
+}
+
+static void ExcluirCompromisso(Usuario usuario, List<Usuario> usuarios)
+{
+    if (usuario.Compromissos.Count == 0)
+    {
+        Console.WriteLine("Nenhum compromisso para excluir.");
+        return;
+    }
+
+    Console.WriteLine("\nCompromissos registrados:");
+    int i = 1;
+    foreach (var compromisso in usuario.Compromissos)
+    {
+        Console.WriteLine($"{i}. {compromisso}");
+        i++;
+    }
+
+    Console.Write("Digite o número do compromisso que deseja excluir: ");
+    if (int.TryParse(Console.ReadLine(), out int escolha) && escolha > 0 && escolha <= usuario.Compromissos.Count)
+    {
+        var lista = usuario.Compromissos.ToList();
+        var compromissoRemover = lista[escolha - 1];
+
+        // Remover do campo privado (precisa de um método na classe Usuario)
+        usuario.RemoverCompromisso(compromissoRemover);
+
+        RepositorioCompromissos.Salvar(usuarios);
+        Console.WriteLine("Compromisso excluído com sucesso!");
+    }
+    else
+    {
+        Console.WriteLine("Opção inválida.");
     }
 }

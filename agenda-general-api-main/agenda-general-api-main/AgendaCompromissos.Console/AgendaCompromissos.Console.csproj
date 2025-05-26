@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AgendaCompromissos.Modelo\AgendaCompromissos.Modelo.csproj" />
+    <ProjectReference Include="..\AgendaCompromissos.Persistencia\AgendaCompromissos.Persistencia.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

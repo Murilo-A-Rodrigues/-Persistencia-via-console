@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v9.0": {
       "AgendaCompromissos.Console/1.0.0": {
         "dependencies": {
-          "AgendaCompromissos.Modelo": "1.0.0"
+          "AgendaCompromissos.Modelo": "1.0.0",
+          "AgendaCompromissos.Persistencia": "1.0.0"
         },
         "runtime": {
           "AgendaCompromissos.Console.dll": {}
@@ -17,6 +18,17 @@
       "AgendaCompromissos.Modelo/1.0.0": {
         "runtime": {
           "AgendaCompromissos.Modelo.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AgendaCompromissos.Persistencia/1.0.0": {
+        "dependencies": {
+          "AgendaCompromissos.Modelo": "1.0.0"
+        },
+        "runtime": {
+          "AgendaCompromissos.Persistencia.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -31,6 +43,11 @@
       "sha512": ""
     },
     "AgendaCompromissos.Modelo/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AgendaCompromissos.Persistencia/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

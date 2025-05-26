@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
 
 namespace AgendaCompromissos.Model;
 
@@ -10,8 +12,11 @@ public class Compromisso
     public Usuario Usuario { get; private set; }
     public Local Local { get; private set; }
 
-    private readonly List<Participante> _participantes = new();
-    private readonly List<Anotacao> _anotacoes = new();
+ [JsonInclude]
+    private List<Participante> _participantes = new();
+
+    [JsonInclude]
+    private List<Anotacao> _anotacoes = new();
 
     public IReadOnlyCollection<Participante> Participantes => _participantes;
     public IReadOnlyCollection<Anotacao> Anotacoes => _anotacoes;
